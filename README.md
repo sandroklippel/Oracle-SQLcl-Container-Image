@@ -10,11 +10,21 @@
 ```bash
 podman build -t sqlcl  .
 ```
+or 
+
+```bash
+docker build -f Containerfile -t sqlcl .
+```
 
 ## Run
 
 ```bash
 podman run -it --rm sqlcl
+```
+or
+
+```bash
+docker run -it --rm sqlcl
 ```
 
 
@@ -22,9 +32,15 @@ podman run -it --rm sqlcl
 
 ```bash
 alias sqlcl='podman run -it --rm \
-  --network="host" \
   -v `pwd`:/work \
-  sqlcl:latest'
+  sqlcl'
+```
+or
+
+```bash
+alias sqlcl='docker run -it --rm \
+  -v `pwd`:/work \
+  sqlcl'
 ```
 
 To persist add the `alias` command to `~/.bash_profile`.
