@@ -8,8 +8,8 @@ ENV SQLCL_VERSION=latest \
 # Create a directory for SQLcl
 WORKDIR $SQLCL_HOME
 
-# Install unzip utility to extract SQLcl and postgresql-client for data transfer
-RUN apt-get update && apt-get install -y --no-install-recommends curl unzip postgresql-client && \
+# Install unzip utility and extract SQLcl
+RUN apt-get update && apt-get install -y --no-install-recommends curl unzip && \
 apt-get clean && rm -rf /var/lib/apt/lists/* && echo "APT cache cleaned successfully"
 
 RUN curl -s \
